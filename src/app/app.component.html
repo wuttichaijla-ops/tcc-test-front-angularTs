@@ -1,0 +1,21 @@
+<div class="app-container">
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">{{ title }}</h1>
+      <ul class="nav-links">
+        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Angular TypeScript App. Built with Angular.</p>
+    </div>
+  </footer>
+</div>

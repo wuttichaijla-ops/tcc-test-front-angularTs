@@ -1,0 +1,59 @@
+<div class="page-container">
+  <div class="card">
+    <div class="card-header">
+      <div class="title">IT 06-1</div>
+      <div class="header-right">
+        <span class="header-label">รหัสสินค้า</span>
+        <input
+          class="code-input"
+          [value]="newCode"
+          (input)="onCodeInput($any($event.target).value)"
+          placeholder="XXXX-XXXX-XXXX-XXXX"
+        />
+        <input
+          class="name-input"
+          [(ngModel)]="newProductName"
+          placeholder="ชื่อสินค้า"
+        />
+        <button class="btn primary" [disabled]="!canAdd()" (click)="addProductCode()">
+          ADD
+        </button>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div *ngIf="errorMessage" class="alert error">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="isLoading" class="loading">
+        กำลังโหลดข้อมูล...
+      </div>
+
+      <table class="codes-table" *ngIf="!isLoading">
+        <thead>
+          <tr>
+            <th class="col-id">Id</th>
+            <th class="col-code">รหัสสินค้า (16 หลัก)</th>
+            <th class="col-barcode">บาร์โค้ดสินค้า</th>
+            <th class="col-action">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let code of productCodes; let i = index">
+            <td class="col-id">{{ i + 1 }}</td>
+            <td class="col-code">{{ code.code }}</td>
+            <td class="col-barcode">
+              <svg class="barcode-svg" appBarcode [value]="code.code"></svg>
+            </td>
+            <td class="col-action">
+              <button class="btn danger" (click)="confirmDelete(code)">ลบ</button>
+            </td>
+          </tr>
+          <tr *ngIf="productCodes.length === 0">
+            <td colspan="4" class="empty-state">ยังไม่มีข้อมูลรหัสสินค้า</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

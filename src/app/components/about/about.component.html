@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="hero-section">
+    <h1>About This Application</h1>
+    <p class="subtitle">Built with modern Angular and TypeScript best practices</p>
+  </div>
+
+  <div class="card">
+    <h2>Features</h2>
+    <div class="features-grid">
+      <div *ngFor="let feature of features" class="feature-card">
+        <div class="feature-icon">{{ feature.icon }}</div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Technology Stack</h2>
+    <ul class="tech-list">
+      <li><strong>Angular 17:</strong> Modern frontend framework</li>
+      <li><strong>TypeScript:</strong> Type-safe JavaScript</li>
+      <li><strong>RxJS:</strong> Reactive programming</li>
+      <li><strong>Angular Router:</strong> Client-side routing</li>
+      <li><strong>Angular Forms:</strong> Form handling</li>
+      <li><strong>Angular HTTP Client:</strong> API communication</li>
+    </ul>
+  </div>
+</div>
+
